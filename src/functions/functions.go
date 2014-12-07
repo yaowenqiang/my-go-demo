@@ -49,9 +49,15 @@ import (
 
 
 /* return named value */
-func printer(message string) (e error) {
-    _,e = fmt.Printf("%s\n",message)
-    return
+/* func printer(message string) (e error) { */
+/*     _,e = fmt.Printf("%s\n",message) */
+/*     return */
+/* } */
+/* unlimited arguments */
+func printer(msgs ...string){
+    for _,message := range msgs {
+        fmt.Printf("%s\n",message)
+    }
 }
 func main (){
     /* printer("Hello") */
@@ -62,6 +68,7 @@ func main (){
     /*     fmt.Printf("% x\n",appendedMessage) */
 
     /* } */
-    printer("Hello")
+    /* printer("Hello","world") */
+    printer("Hello","world","i am here")
 
 }
