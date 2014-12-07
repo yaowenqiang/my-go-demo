@@ -1,7 +1,7 @@
 package main
 import (
     "fmt"
-    "os"
+    /* "os" */
 )
 
 /* func printer(message1,message2 string,string) { */
@@ -35,16 +35,23 @@ import (
 /* } */
 
 /* operate file */
-func printer(message string) error {
-    fmt.Printf(message)
-    f,err := os.Create("hellorword.txt")
-    if err != nil {
-        return err
-    }
-    defer f.Close()
-    //TODO 文件写入失败
-    /* f.Write(message) */
-    return err
+/* func printer(message string) error { */
+/*     fmt.Printf(message) */
+/*     f,err := os.Create("hellorword.txt") */
+/*     if err != nil { */
+/*         return err */
+/*     } */
+/*     defer f.Close() */
+/*     //TODO 文件写入失败 */
+/*     /1* f.Write(message) *1/ */
+/*     return err */
+/* } */
+
+
+/* return named value */
+func printer(message string) (e error) {
+    _,e = fmt.Printf("%s\n",message)
+    return
 }
 func main (){
     /* printer("Hello") */
