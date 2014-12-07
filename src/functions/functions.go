@@ -18,17 +18,29 @@ import (
 /* } */
 
 /* multiple return value */
-func printer(message string) (string,error) {
-    message +="\n"
-    _,error := fmt.Printf("%s\n",message)
-    return message,error
+/* func printer(message string) (string,error) { */
+/*     message +="\n" */
+/*     _,error := fmt.Printf("%s\n",message) */
+/*     return message,error */
+/* } */
+
+/* defer */
+
+func printer(message string) error {
+    defer fmt.Printf("More\n")
+    defer fmt.Printf("\n")
+    _,error := fmt.Printf("%s",message)
+    return error
 }
 func main (){
     /* printer("Hello") */
-    appendedMessage,error :=  printer("Hello")
-    if error == nil {
-        fmt.Printf("%q\n",appendedMessage)
+    /* appendedMessage,error :=  printer("Hello") */
+    /* if error == nil { */
+    /*     fmt.Printf("%q\n",appendedMessage) */
+    /*     fmt.Printf("%x\n",appendedMessage) */
+    /*     fmt.Printf("% x\n",appendedMessage) */
 
-    }
+    /* } */
+    printer("Hello")
 
 }
