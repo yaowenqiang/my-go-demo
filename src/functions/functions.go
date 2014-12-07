@@ -11,12 +11,24 @@ import (
 /*     } */
 /* } */
 
-func printer(message string) error {
+/* single return value */
+/* func printer(message string) error { */
+/*     _,error := fmt.Printf("%s\n",message) */
+/*     return error */
+/* } */
+
+/* multiple return value */
+func printer(message string) (string,error) {
+    message +="\n"
     _,error := fmt.Printf("%s\n",message)
-    return error
+    return message,error
 }
 func main (){
     /* printer("Hello") */
-    printer("Hello")
+    appendedMessage,error :=  printer("Hello")
+    if error == nil {
+        fmt.Printf("%q\n",appendedMessage)
+
+    }
 
 }
