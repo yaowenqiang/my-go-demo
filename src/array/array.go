@@ -55,6 +55,7 @@ func main (){
     printArr(words)
     newWords := make([]string,4)
     copy(newWords,words)
+    words[3] = "Blue"
     printArr(newWords)
 
 }
