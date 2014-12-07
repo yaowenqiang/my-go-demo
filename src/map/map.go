@@ -20,6 +20,18 @@ func main () {
     dayMounths["Nov"] = 30
     dayMounths["Dec"] = 31
 
-    fmt.Printf("Days in February: %d \n",dayMounths["Feb"])
+    /* fmt.Printf("Days in February: %d \n",dayMounths["Feb"]) */
+    /* days,OK := dayMounths["January"] */
+    /* if !OK { */
+    /*     fmt.Printf("Can't get days for January") */
+    /* } else { */
+    /*     fmt.Printf("%d\n",days) */
+
+    /* } */
+
+    for month,days := range dayMounths {
+        fmt.Printf("%s has % days\n",month,days)
+
+    }
 
 }
