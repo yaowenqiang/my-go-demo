@@ -53,6 +53,9 @@ func main (){
     /* words[2] = "Brown" */
     /* words[3] = "Fox" */
     printArr(words)
+    newWords := make([]string,4)
+    copy(newWords,words)
+    printArr(newWords)
 
 }
 
