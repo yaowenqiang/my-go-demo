@@ -3,10 +3,11 @@ import (
     "fmt"
 )
 
-func printer(message string) {
-    fmt.Printf("%s\n",message)
+/* func printer(message1,message2 string,string) { */
+func printer(message1,message2 string) {
+    fmt.Printf("%s %s\n",message1,message2)
 }
 func main (){
-    printer("Hello world")
+    printer("Hello"," world")
 
 }
