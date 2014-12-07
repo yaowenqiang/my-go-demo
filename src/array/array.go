@@ -38,9 +38,15 @@ func main (){
     /* printArr(words[:9]); */
     /* words := make([]string,4) */
     words := make([]string,0,4)
+    fmt.Printf("%d,%d\n",len(words),cap(words))
     words = append(words,"The")
     words = append(words,"Quick")
     words = append(words,"Brown")
+    words = append(words,"Fox")
+    words = append(words,"Fox")
+    words = append(words,"Fox")
+    words = append(words,"Fox")
+    words = append(words,"Fox")
     words = append(words,"Fox")
     /* words[0] = "The" */
     /* words[1] = "Quick" */
