@@ -33,5 +33,17 @@ func main () {
         fmt.Printf("%s has % days\n",month,days)
 
     }
+    delete(dayMounths,"Feb")
+    delete(dayMounths,"Mar")
+    day31 := 0
+    for _,days := range dayMounths {
+        if days == 31 {
+            day31 ++
+
+        }
+
+    }
+    fmt.Printf("%d monthes have 31 days",day31)
+
 
 }
