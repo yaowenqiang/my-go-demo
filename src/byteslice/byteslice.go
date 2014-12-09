@@ -6,10 +6,15 @@ import (
 
 
 func main (){
-    _,err := os.Open("test.txt")
+    f,err := os.Open("test.txt")
     if err != nil {
         fmt.Printf("%s\n",err)
         os.Exit(1)
     }
+    defer f.Close()
+    b := make([]byte,100)
 
+    n,err := f.Read(b)
+    /* fmt.Printf("%d: % x\n",n,b) */
+    fmt.Printf("%d: % s\n",n,b)
 }
