@@ -16,5 +16,8 @@ func main (){
 
     n,err := f.Read(b)
     /* fmt.Printf("%d: % x\n",n,b) */
-    fmt.Printf("%d: % s\n",n,b)
+    /* fmt.Printf("%d: % s\n",n,b) */
+    fmt.Printf("%d: % c\n",n,b)
+    /* stringVersion := string(b) */
+    fmt.Printf("%d: % s\n",n,stringVersion)
 }
