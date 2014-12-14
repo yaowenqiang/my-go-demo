@@ -3,6 +3,7 @@ import (
     "fmt"
     "io/ioutil"
     "net/http"
+    "os"
 )
 
 
@@ -20,9 +21,16 @@ func getPage(url string) (int,error){
 
 }
 func main () {
-    url := "http://www.baidu.com/";
-    pageLength,_ := getPage(url)
-    fmt.Printf("%s is length %d \n",url,pageLength)
+    urls := []string{"http://baidu.com/","http://www.sohu.com/","http://www.163.com/"}
+    for _,url := range urls {
+        pageLength,err := getPage(url)
+        if err != nil {
+            os.Exit(0);
+
+        }
+        fmt.Printf("%s is length %d \n",url,pageLength)
+
+    }
 }
 
 
