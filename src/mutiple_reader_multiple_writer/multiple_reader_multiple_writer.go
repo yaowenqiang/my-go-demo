@@ -28,12 +28,12 @@ func getter (url string,size chan string) {
         os.Exit(1)
     }
 }
-func worker (urlCh chan string,sizeCh chan string) {
+func worker (urlCh chan string,sizeCh chan string,id int) {
     for {
         url := <- urlCh
         length,err := getPage(url)
         if err == nil {
-            sizeCh <- fmt.Sprintf("%s has length of %d\n",url,length)
+            sizeCh <- fmt.Sprintf("%s has length of %d (%d)\n",url,length,id)
         } else {
             sizeCh <- fmt.Sprintf("Error getting %s  %s\n",url,err)
         }
@@ -41,7 +41,7 @@ func worker (urlCh chan string,sizeCh chan string) {
     }
 }
 func main () {
-    /* urls := []string{"http://baidu.com/","http://www.sohu.com/","http://www.163.com/","http://www.so.com/","http://www.oschina.net/","http://www.soso.com","http://www.hao123.com"} */
+    urls := []string{"http://baidu.com/","http://www.sohu.com/","http://www.163.com/","http://www.so.com/","http://www.oschina.net/","http://www.soso.com","http://www.hao123.com"}
     /* for _,url := range urls { */
     /*     pageLength,err := getPage(url) */
     /*     if err != nil { */
@@ -56,7 +56,10 @@ func main () {
     urlCh := make(chan string)
     sizeCh := make(chan string)
 
-    go worker(urlCh,sizeCh)
+    for i := 0;i<len(urls);i++ {
+        go worker(urlCh,sizeCh,i)
+
+    }
 
     /* for _,url := range urls{ */
     /*     go getter(url,size) */
@@ -64,8 +67,13 @@ func main () {
     /* for i := 0;i<len(urls); i++ { */
     /*     fmt.Printf("%s",<-size) */
     /* } */
-    urlCh <- "http://www.baidu.com"
-    fmt.Printf("%s",<-sizeCh);
+    for _,url := range urls {
+        /* urlCh <- "http://www.baidu.com" */
+        urlCh <- url
+    }
+    for i:=0;i<len(urls);i++ {
+        fmt.Printf("%s",<-sizeCh);
+    }
 }
 
 
