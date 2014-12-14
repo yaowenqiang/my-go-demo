@@ -17,15 +17,24 @@ func makeRadoms(c chan int) {
 
     }
 }
+func makeID(idChan chan int) {
+    var id int
+    id = 0
+    for {
+        idChan <- id
+        id +=1
+    }
+
+}
 func main () {
     /* wordChannel := make(chan string) */
-    randoms := make(chan int)
-    go makeRadoms(randoms)
+    /* randoms := make(chan int) */
+    /* go makeRadoms(randoms) */
     /* go emit(wordChannel) */
-    for n := range randoms {
-        fmt.Printf("%d ",n)
+    /* for n := range randoms { */
+    /*     fmt.Printf("%d ",n) */
 
-    }
+    /* } */
 
     /* fmt.Printf("\n") */
     /* word := <- wordChannel */
@@ -40,5 +49,18 @@ func main () {
     /* /1* word,ok = <- wordChannel *1/ */
     /* word,ok := <- wordChannel */
     /* fmt.Printf("%s %t\n",word,ok) */
+    idChan := make(chan int)
+    go makeID(idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
+    fmt.Printf("%d \n",<-idChan)
 }
 
