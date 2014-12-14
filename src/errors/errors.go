@@ -11,7 +11,8 @@ var (
 func printer(msg string) error {
     if msg == "" {
         /* return fmt.Errorf("Unwilling to print an empty string"); */
-        return errorEmptyString
+        /* return errorEmptyString */
+        panic(errorEmptyString)
     }
     _,err := fmt.Printf("%s\n",msg)
     return err
