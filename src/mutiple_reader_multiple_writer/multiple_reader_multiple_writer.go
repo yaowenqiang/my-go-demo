@@ -40,6 +40,10 @@ func worker (urlCh chan string,sizeCh chan string,id int) {
 
     }
 }
+func generator (url string,urlCh chan string) {
+    urlCh <- url
+
+}
 func main () {
     urls := []string{"http://baidu.com/","http://www.sohu.com/","http://www.163.com/","http://www.so.com/","http://www.oschina.net/","http://www.soso.com","http://www.hao123.com"}
     /* for _,url := range urls { */
@@ -69,7 +73,8 @@ func main () {
     /* } */
     for _,url := range urls {
         /* urlCh <- "http://www.baidu.com" */
-        urlCh <- url
+        go generator(url,urlCh)
+        /* urlCh <- url */
     }
     for i:=0;i<len(urls);i++ {
         fmt.Printf("%s",<-sizeCh);
